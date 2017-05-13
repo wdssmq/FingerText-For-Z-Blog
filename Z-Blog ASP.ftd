@@ -1,3 +1,7 @@
+rw
+Ext:asp
+Response.Write 
+[>END<]!$[FingerTextData FingerTextData]@#
 isfile
 Ext:asp
 If Not PublicObjFSO.FolderExists($[![BlogPath]!]) Then
@@ -29,7 +33,7 @@ Function $[![Name]!]_Path(name,p)
   $[![Name]!]_Path = MyPath
 End Function
 [>END<]!$[FingerTextData FingerTextData]@#
-rw
+stf
 Ext:asp
-Response.Write 
+Call SaveToFile($[![BlogPath]!],$[![]!],"utf-8",False)
 [>END<]!$[FingerTextData FingerTextData]@#
