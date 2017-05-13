@@ -1,0 +1,35 @@
+isfile
+Ext:asp
+If Not PublicObjFSO.FolderExists($[![BlogPath]!]) Then
+
+End If
+[>END<]!$[FingerTextData FingerTextData]@#
+plug
+Ext:asp
+BlogPath & "zb_users\PLUGIN\$[![Name]!]\"[>END<]!$[FingerTextData FingerTextData]@#
+mkdir
+Ext:asp
+Call CreatDirectoryByCustomDirectoryWithFullBlogPath($[![BlogPath]!])
+[>END<]!$[FingerTextData FingerTextData]@#
+fnpath
+Ext:asp
+Function $[![Name]!]_Path(name,p)
+  Dim MyPath
+  MyPath = IIf(p = "url",BlogHost,BlogPath)
+  MyPath = MyPath & "zb_users\PLUGIN\$[![Name]!]\"
+  Select Case name
+    Case $[![]!]
+      MyPath = MyPath & $[![]!]
+    $[![Case Else]!]
+      $[![]!]
+  End Case
+  If p = "url" Then
+    MyPath = Replace(MyPath,"\","/")
+  End If
+  $[![Name]!]_Path = MyPath
+End Function
+[>END<]!$[FingerTextData FingerTextData]@#
+rw
+Ext:asp
+Response.Write 
+[>END<]!$[FingerTextData FingerTextData]@#
