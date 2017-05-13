@@ -37,3 +37,7 @@ stf
 Ext:asp
 Call SaveToFile($[![BlogPath]!],$[![]!],"utf-8",False)
 [>END<]!$[FingerTextData FingerTextData]@#
+lff
+Ext:asp
+$[![variable]!] = LoadFromFile($[![BlogPath]!],"utf-8")
+[>END<]!$[FingerTextData FingerTextData]@#
