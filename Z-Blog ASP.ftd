@@ -1,6 +1,6 @@
 rw
 Ext:asp
-Response.Write 
+Response.Write $[![BlogPath]!]
 [>END<]!$[FingerTextData FingerTextData]@#
 isfile
 Ext:asp
@@ -26,7 +26,7 @@ Function $[![Name]!]_Path(name,p)
       MyPath = MyPath & $[![]!]
     $[![Case Else]!]
       $[![]!]
-  End Case
+  End Select
   If p = "url" Then
     MyPath = Replace(MyPath,"\","/")
   End If
