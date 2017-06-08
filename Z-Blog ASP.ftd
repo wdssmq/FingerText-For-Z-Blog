@@ -1,6 +1,12 @@
 rw
 Ext:asp
 Response.Write $[![BlogPath]!][>END<]!$[FingerTextData FingerTextData]@#
+fn
+Ext:asp
+Function $[![Name]!]()
+  $[![]!]
+End Function
+[>END<]!$[FingerTextData FingerTextData]@#
 isfile
 Ext:asp
 If Not PublicObjFSO.FileExists($[![BlogPath]!]) Then
