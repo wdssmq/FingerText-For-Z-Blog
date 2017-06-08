@@ -1,8 +1,13 @@
 rw
 Ext:asp
-Response.Write $[![BlogPath]!]
-[>END<]!$[FingerTextData FingerTextData]@#
+Response.Write $[![BlogPath]!][>END<]!$[FingerTextData FingerTextData]@#
 isfile
+Ext:asp
+If Not PublicObjFSO.FileExists($[![BlogPath]!]) Then
+
+End If
+[>END<]!$[FingerTextData FingerTextData]@#
+isfolder
 Ext:asp
 If Not PublicObjFSO.FolderExists($[![BlogPath]!]) Then
 
@@ -25,7 +30,7 @@ Function $[![Name]!]_Path(name,p)
     Case $[![]!]
       MyPath = MyPath & $[![]!]
     $[![Case Else]!]
-      $[![]!]
+      $[![MyPath]!]
   End Select
   If p = "url" Then
     MyPath = Replace(MyPath,"\","/")
