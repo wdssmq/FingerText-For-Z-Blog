@@ -26,6 +26,15 @@ mkdir
 Ext:asp
 Call CreatDirectoryByCustomDirectoryWithFullBlogPath($[![BlogPath]!])
 [>END<]!$[FingerTextData FingerTextData]@#
+cfg
+Ext:asp
+Set $[![Name]!] = New TConfig
+$[![Name]!].Load "$[![Name]!]_cfg"
+If $[![Name]!].Exists("ver")=False Then
+  $[![Name]!].Write "ver","1.0"
+  $[![Name]!].Save
+End If
+[>END<]!$[FingerTextData FingerTextData]@#
 fnpath
 Ext:asp
 Function $[![Name]!]_Path(name,p)
@@ -33,8 +42,10 @@ Function $[![Name]!]_Path(name,p)
   MyPath = IIf(p = "url",BlogHost,BlogPath)
   MyPath = MyPath & "zb_users\PLUGIN\$[![Name]!]\"
   Select Case name
-    Case $[![]!]
-      MyPath = MyPath & $[![]!]
+    Case $[!["file"]!]
+      MyPath = MyPath & $[!["file"]!]
+    Case "Main"
+      MyPath = MyPath & "Main.asp"
     $[![Case Else]!]
       $[![MyPath]!]
   End Select
