@@ -1,0 +1,18 @@
+fnpath
+Ext:php
+function $[![Name]!]_Path($file, $t = "path")
+{
+  global $zbp;
+  $result = $zbp->$t . "zb_users/plugin/$[![Name]!]/";
+  switch ($file) {
+    case $[!["file"]!]:
+      return $result . "main.php";
+      break;
+    case "Main":
+      return $result . "main.php";
+      break;
+    default:
+      return $result;
+  }
+}
+[>END<]!$[FingerTextData FingerTextData]@#
