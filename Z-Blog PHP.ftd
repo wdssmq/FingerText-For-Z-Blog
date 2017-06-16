@@ -6,7 +6,7 @@ function $[![Name]!]_Path($file, $t = "path")
   $result = $zbp->$t . "zb_users/plugin/$[![Name]!]/";
   switch ($file) {
     case $[!["file"]!]:
-      return $result . "main.php";
+      return $result . $[!["file"]!];
       break;
     case "Main":
       return $result . "main.php";
@@ -14,5 +14,33 @@ function $[![Name]!]_Path($file, $t = "path")
     default:
       return $result;
   }
+}
+[>END<]!$[FingerTextData FingerTextData]@#
+isfile
+Ext:php
+if (!is_file($[![$file]!])) {
+  
+}
+[>END<]!$[FingerTextData FingerTextData]@#
+isdir
+Ext:php
+if (!is_dir($[![$dir]!])) {
+  
+}
+[>END<]!$[FingerTextData FingerTextData]@#
+mkcfg
+Ext:php
+  if (!$zbp->HasConfig('$[![Name]!]')) {
+    $zbp->Config('$[![Name]!]')->$[![key]!] = '$[![value]!]';
+    $zbp->SaveConfig('$[![Name]!]');
+  }
+[>END<]!$[FingerTextData FingerTextData]@#
+savcfg
+Ext:php
+if(GetVars('act','GET')=='save'){
+  $zbp->Config('$[![Name]!]')->$[![]!] = $_POST['$[![]!]'];
+	$zbp->SaveConfig('$[![Name]!]');
+	$zbp->SetHint('good');
+	Redirect('./main.php');
 }
 [>END<]!$[FingerTextData FingerTextData]@#
