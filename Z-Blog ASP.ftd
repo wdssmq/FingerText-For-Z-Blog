@@ -1,3 +1,6 @@
+asp
+Ext:asp
+<% $[![]!] %>[>END<]!$[FingerTextData FingerTextData]@#
 rw
 Ext:asp
 Response.Write $[![BlogPath]!][>END<]!$[FingerTextData FingerTextData]@#
@@ -28,31 +31,30 @@ Call CreatDirectoryByCustomDirectoryWithFullBlogPath($[![BlogPath]!])
 [>END<]!$[FingerTextData FingerTextData]@#
 cfg
 Ext:asp
-Set $[![Name]!] = New TConfig
-$[![Name]!].Load "$[![Name]!]_cfg"
-If $[![Name]!].Exists("ver")=False Then
-  $[![Name]!].Write "ver","1.0"
-  $[![Name]!].Save
+Dim $[![Name]!]_cfg
+Set $[![Name]!]_cfg = New TConfig
+$[![Name]!]_cfg.Load "$[![Name]!]"
+If $[![Name]!]_cfg.Exists("ver")=False Then
+  $[![Name]!]_cfg.Write "ver","1.0"
+  $[![Name]!]_cfg.Save
 End If
 [>END<]!$[FingerTextData FingerTextData]@#
 fnpath
 Ext:asp
 Function $[![Name]!]_Path(name,p)
-  Dim MyPath
-  MyPath = IIf(p = "url",BlogHost,BlogPath)
-  MyPath = MyPath & "zb_users\PLUGIN\$[![Name]!]\"
+  Dim path
+  path = IIf(p = "url",BlogHost,BlogPath)
+  path = path & "zb_users\PLUGIN\$[![Name]!]\"
   Select Case name
     Case $[!["file"]!]
-      MyPath = MyPath & $[!["file"]!]
+      path = path & $[!["file"]!]
     Case "Main"
-      MyPath = MyPath & "Main.asp"
-    $[![Case Else]!]
-      $[![MyPath]!]
+      path = path & "Main.asp"
   End Select
   If p = "url" Then
-    MyPath = Replace(MyPath,"\","/")
+    path = Replace(path,"\","/")
   End If
-  $[![Name]!]_Path = MyPath
+  $[![Name]!]_Path = path
 End Function
 [>END<]!$[FingerTextData FingerTextData]@#
 stf
@@ -62,4 +64,8 @@ Call SaveToFile($[![BlogPath]!],$[![]!],"utf-8",False)
 lff
 Ext:asp
 $[![variable]!] = LoadFromFile($[![BlogPath]!],"utf-8")
+[>END<]!$[FingerTextData FingerTextData]@#
+log
+Lang:HTML
+console.log($[![]!])
 [>END<]!$[FingerTextData FingerTextData]@#

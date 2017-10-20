@@ -1,6 +1,6 @@
 fnpath
 Ext:php
-function $[![Name]!]_Path($file, $t = "path")
+function $[![Name]!]_Path($p, $t = "path")
 {
   global $zbp;
   $result = $zbp->$t . "zb_users/plugin/$[![Name]!]/";
@@ -12,7 +12,7 @@ function $[![Name]!]_Path($file, $t = "path")
       return $result . "main.php";
       break;
     default:
-      return $result;
+      return $result . $file;
   }
 }
 [>END<]!$[FingerTextData FingerTextData]@#
@@ -30,6 +30,7 @@ if (!is_dir($[![$dir]!])) {
 [>END<]!$[FingerTextData FingerTextData]@#
 mkcfg
 Ext:php
+  global $zbp;
   if (!$zbp->HasConfig('$[![Name]!]')) {
     $zbp->Config('$[![Name]!]')->$[![key]!] = '$[![value]!]';
     $zbp->SaveConfig('$[![Name]!]');
@@ -38,9 +39,15 @@ Ext:php
 savcfg
 Ext:php
 if(GetVars('act','GET')=='save'){
+  foreach($_POST as $key => $val){
+    $_POST[$key] = trim($val);
+  }
   $zbp->Config('$[![Name]!]')->$[![]!] = $_POST['$[![]!]'];
 	$zbp->SaveConfig('$[![Name]!]');
 	$zbp->SetHint('good');
-	Redirect('./main.php');
+	Redirect('./main.php' . $suc == null ? '' : "?act=$suc");
 }
 [>END<]!$[FingerTextData FingerTextData]@#
+rdcfg
+Ext:php
+$zbp->Config('$[![Name]!]')->$[![Key]!][>END<]!$[FingerTextData FingerTextData]@#
