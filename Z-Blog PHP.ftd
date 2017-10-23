@@ -38,6 +38,8 @@ Ext:php
 [>END<]!$[FingerTextData FingerTextData]@#
 savcfg
 Ext:php
+$act = GetVars('act','GET');
+$suc = GetVars('suc','GET');
 if(GetVars('act','GET')=='save'){
   foreach($_POST as $key => $val){
     $_POST[$key] = trim($val);
