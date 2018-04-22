@@ -29,7 +29,7 @@ mkdir
 Ext:asp
 Call CreatDirectoryByCustomDirectoryWithFullBlogPath($[![BlogPath]!])
 [>END<]!$[FingerTextData FingerTextData]@#
-cfg
+mkcfg
 Ext:asp
 Dim $[![Name]!]_cfg
 Set $[![Name]!]_cfg = New TConfig
@@ -39,17 +39,34 @@ If $[![Name]!]_cfg.Exists("ver")=False Then
   $[![Name]!]_cfg.Save
 End If
 [>END<]!$[FingerTextData FingerTextData]@#
+savcfg
+Ext:asp
+Dim act:act = Request.QueryString("act")
+Dim suc:suc = Request.QueryString("suc")
+Dim $[![Name]!]_cfg
+Set $[![Name]!]_cfg = New TConfig
+$[![Name]!]_cfg.Load "$[![Name]!]"
+If act = "save" Then
+  $[![Name]!]_cfg.Write "$[![]!]",Request.Form("$[![]!]")
+  '$[![Name]!]_cfg.Write "$[![]!]",IIf(Request.Form("$[![]!]") = "True",True,False)
+  $[![Name]!]_cfg.Save()
+  Call SetBlogHint(True,Empty,Empty)
+  Response.Redirect "main.asp" & IIf(suc <> "","?act=" & suc,"") 
+End If
+[>END<]!$[FingerTextData FingerTextData]@#
 fnpath
 Ext:asp
-Function $[![Name]!]_Path(name,p)
+Function $[![Name]!]_Path(file,p)
   Dim path
   path = IIf(p = "url",BlogHost,BlogPath)
   path = path & "zb_users\PLUGIN\$[![Name]!]\"
-  Select Case name
+  Select Case file
     Case $[!["file"]!]
       path = path & $[!["file"]!]
-    Case "Main"
-      path = path & "Main.asp"
+    Case "main"
+      path = path & "main.asp"
+    Case Else  
+      path = path & file
   End Select
   If p = "url" Then
     path = Replace(path,"\","/")
@@ -69,3 +86,6 @@ log
 Lang:HTML
 console.log($[![]!])
 [>END<]!$[FingerTextData FingerTextData]@#
+rwbr
+Ext:asp
+& "<br />"[>END<]!$[FingerTextData FingerTextData]@#

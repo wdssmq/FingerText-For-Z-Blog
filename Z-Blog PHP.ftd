@@ -1,3 +1,10 @@
+var_dump
+Ext:php
+echo __LINE__ . ":<br />";
+var_dump($[![Str]!]);
+echo "<br />";
+$[![die();]!]
+[>END<]!$[FingerTextData FingerTextData]@#
 fnpath
 Ext:php
 function $[![Name]!]_Path($p, $t = "path")
@@ -8,7 +15,7 @@ function $[![Name]!]_Path($p, $t = "path")
     case $[!["file"]!]:
       return $result . $[!["file"]!];
       break;
-    case "Main":
+    case "main":
       return $result . "main.php";
       break;
     default:
