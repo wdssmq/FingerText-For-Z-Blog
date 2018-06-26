@@ -7,7 +7,7 @@ $[![die();]!]
 [>END<]!$[FingerTextData FingerTextData]@#
 fnpath
 Ext:php
-function $[![Name]!]_Path($p, $t = "path")
+function $[![Name]!]_Path($file, $t = "path")
 {
   global $zbp;
   $result = $zbp->$t . "zb_users/plugin/$[![Name]!]/";
@@ -54,7 +54,7 @@ if(GetVars('act','GET')=='save'){
   $zbp->Config('$[![Name]!]')->$[![]!] = $_POST['$[![]!]'];
 	$zbp->SaveConfig('$[![Name]!]');
 	$zbp->SetHint('good');
-	Redirect('./main.php' . $suc == null ? '' : "?act=$suc");
+	Redirect('./main.php' . ($suc == null ? '' : "?act=$suc"));
 }
 [>END<]!$[FingerTextData FingerTextData]@#
 rdcfg
