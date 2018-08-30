@@ -1,8 +1,8 @@
 var_dump
 Ext:php
-echo __LINE__ . ":<br />";
+echo __LINE__ . ":<br />\n";
 var_dump($[![Str]!]);
-echo "<br />";
+echo "<br />\n";
 $[![die();]!]
 [>END<]!$[FingerTextData FingerTextData]@#
 fnpath
